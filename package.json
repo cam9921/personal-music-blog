@@ -1,0 +1,32 @@
+{
+  "name": "personal-music-blog",
+  "version": "1.0.0",
+  "description": "Personal Blog to track music I am listening to. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cam9921/personal-music-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "music",
+    "ratings",
+    "express",
+    "javascript"
+  ],
+  "author": "Camden Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cam9921/personal-music-blog/issues"
+  },
+  "homepage": "https://github.com/cam9921/personal-music-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.4"
+  }
+}
