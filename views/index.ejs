@@ -1,12 +1,13 @@
 <% include ./partials/header %>
 
-    <h1> Index Page!!! </h1>
+    <h1> Albums I've Been Listening To </h1>
     <% posts.forEach( (post) => { %>
         <div>
             <h2> <%= post.title %> </h2>
             <img src='<%= post.image %>'>
             <span> <%= post.created %> </span>
-            <p> <%= post.body %> </p>
+            <p> <%- post.body.substring(0, 200) %>... </p>
+            <a href='/posts/<%= post._id %>'> Read More </a>
         </div>
     <% }) %>
 

@@ -62,6 +62,18 @@ app.post('/posts', (req, res) => {
     });
 });
 
+//Show route
+app.get('/posts/:id', (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+        console.log(foundPost)
+        if(err) {
+            res.redirect('/posts');
+        } else {
+            res.render('show', {post: foundPost});
+        }
+    })
+})
+
 app.listen(3000, () => {
     console.log('Server started on port 3000.')
 })
