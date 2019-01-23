@@ -7,10 +7,10 @@ const expressSanitizer = require('express-sanitizer');
 //app config
 const app = express();
 
-mongoose.connect('mongodb://localhost/restful_music_blog')
+mongoose.connect('mongodb://localhost/restful_music_blog');
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
@@ -21,7 +21,7 @@ const postSchema = new mongoose.Schema({
     image: String,
     body: String,
     created: {type: Date, default: Date.now}
-})
+});
 
 const Post = mongoose.model("Post", postSchema);
 
@@ -45,9 +45,9 @@ app.get('/posts', (req, res) => {
         } else {
             res.render('index', {
                 posts: posts
-            })
+            });
         }
-    })
+    });
 });
 
 //New route
@@ -76,8 +76,8 @@ app.get('/posts/:id', (req, res) => {
         } else {
             res.render('show', {post: foundPost});
         }
-    })
-})
+    });
+});
 
 //Edit route
 app.get('/posts/:id/edit', (req, res) => {
@@ -87,7 +87,7 @@ app.get('/posts/:id/edit', (req, res) => {
         } else {
             res.render('edit', {post: foundPost})
         }
-    })
+    });
 });
 
 //Update route
@@ -110,9 +110,9 @@ app.delete('/posts/:id', (req, res) => {
         } else {
             res.redirect('/posts')
         }
-    })
-})
+    });
+});
 
 app.listen(3000, () => {
     console.log('Server started on port 3000.')
-})
+});
