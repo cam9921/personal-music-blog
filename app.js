@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const expressSanitizer = require('express-sanitizer');
+const Post = require('./models/post')
 
 //app config
 const app = express();
@@ -14,16 +15,6 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
-
-//Mongoose model config
-const postSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    created: {type: Date, default: Date.now}
-});
-
-const Post = mongoose.model("Post", postSchema);
 
 //Structure of blog
 //title of song / album / other
